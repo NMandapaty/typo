@@ -11,6 +11,11 @@ describe Admin::CategoriesController do
     request.session = { :user => henri.id }
   end
 
+  it "test_first_edit" do
+    get :edit, :id => nil
+    assert_response 200
+  end
+
   it "test_index" do
     get :index
     assert_response :redirect, :action => 'index'
